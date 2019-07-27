@@ -1,0 +1,6 @@
+thêm Configuration.LazyLoadingEnabled = false; vào file context.cs :
+            public WebDBEntities()
+            : base("name=WebDBEntities")
+            {
+                Configuration.LazyLoadingEnabled = false;
+            }

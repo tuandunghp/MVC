@@ -1,0 +1,162 @@
+﻿@model MVC.Models.Article
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section Header{
+    Thêm mới tin
+    }
+<div class="row">
+    <div class="col-lg-12">
+        <div class="box box-primary">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <div class="box-body">
+                       
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-md-2 control-label">Danh Mục</label>
+                            <div class="col-md-5">
+                                @*@Html.DropDownListFor(model => model.CategoryId, null, htmlAttributes: new { @class = "form-control", @onchange = "getCityList()" })*@
+                                @*@Html.DropDownListFor(model => model.Page, null, "--Chọn chuyên mục--", new { @class = "form-control", @onchange = "getCityList()" })*@
+                                @*@Html.ValidationMessageFor(model => model.Page, "", new { @class = "text-danger" })*@
+                                @Html.DropDownList("MenuCate", ViewBag.MenuCate as SelectList, new { @class = "form-control", @onchange = "getCityList()" })
+                            </div>
+                            <div class="col-md-5">
+                                @Html.DropDownListFor(model => model.CategoryId, null, "--Chọn nhóm chuyên mục--", new { @class = "form-control" })
+
+                                @*@Html.DropDownListFor(model => model.CategoryId, null, htmlAttributes: new { @class = "form-control" })*@
+                                @*@Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })*@
+
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                            <label for="inputEmail3" class="col-md-2 control-label">Danh Mục 1</label>
+                            <div class="col-md-5">
+                                <select id="stateDropDown" onchange="getCityList()">
+                                    @foreach (var item in ViewBag.StateList)
+                                    {
+                                        <text >
+                                        <option value="@item.Id"> @item.MenuName </option>
+                                        </text>
+                                    }
+                                </select><br /> <br />
+
+                                <select id="cityDropDown"></select>
+                            </div>
+                            <div class="col-md-5">
+                            </div>
+                        </div>*@
+
+                        @*<div class="form-group">
+                                @Html.LabelFor(model => model.UserId, "UserId", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownList("UserId", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>*@
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập tiêu đề" } })
+                                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Discription, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-8">
+
+                                @Html.TextAreaFor(model => model.Discription, new { @class = "form-control", @rows = "4", @cols = "20" })
+                                @*@Html.EditorFor(model => model.Discription, new { htmlAttributes = new { @class = "form-control",@type = "textarea", @rows = "4",@cols = "20" } })*@
+                                @Html.ValidationMessageFor(model => model.Discription, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.body, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.body, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.body, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        @*<div class="form-group">
+                                @Html.LabelFor(model => model.Show, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    <div class="checkbox">
+                                        @Html.EditorFor(model => model.Show)
+                                        @Html.ValidationMessageFor(model => model.Show, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.isHot, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    <div class="checkbox">
+                                        @Html.EditorFor(model => model.isHot)
+                                        @Html.ValidationMessageFor(model => model.isHot, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>*@
+
+                        @*<div class="form-group">
+                                @Html.LabelFor(model => model.ImagePath, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.ImagePath, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.ImagePath, "", new { @class = "text-danger" })
+                                </div>
+                            </div>*@
+
+                           
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+
+        </div>
+    </div>
+</div>
+<script >
+    function getCityList()
+    {
+        debugger;
+        var stateId = $("#MenuCate").val();
+        $.ajax({
+            url: '/Article/GetCityList',
+            type: 'POST',
+            datatype: 'application/json',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                stateId: +stateId
+            }),
+            success: function(result)
+            {
+                $("#CategoryId").html("");
+                $.each($.parseJSON(result), function(i, city)
+                 {
+                    $("#CategoryId").append($('<option></option>').val(city.Id).html(city.Category))
+                })
+
+            },
+            error: function()
+            {
+                alert("Có lỗi trong quá trình lấy dữ liệu")
+            },
+        });
+    } </script>

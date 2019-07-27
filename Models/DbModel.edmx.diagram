@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="32ce83bfec444d59a2664e5a75f6c428" Name="Diagram1">
+        <EntityTypeShape EntityType="WebDBModel.Advertise" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.Article" Width="1.5" PointX="6" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.BannerImage" Width="1.5" PointX="2.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.CodeEditor" Width="1.5" PointX="10.375" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.Comment" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.LienHe" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.LinkDownload" Width="1.5" PointX="8.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.ListArticle" Width="1.5" PointX="10.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.Menu" Width="1.5" PointX="1.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.Notification" Width="1.5" PointX="12.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.Page" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.RepComment" Width="1.5" PointX="10.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.RepLienHe" Width="1.5" PointX="8" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.Setting" Width="1.5" PointX="12.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.SettingsComment" Width="1.5" PointX="5.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.SettingSendEmail" Width="1.5" PointX="12.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.SettingsUser" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.SoftWare" Width="1.5" PointX="12.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.SoftWareType" Width="1.5" PointX="14.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.sysdiagram" Width="1.5" PointX="14.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.Tag" Width="1.5" PointX="14.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.tblThongKeTruyCap" Width="1.5" PointX="14.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.Traffic" Width="1.5" PointX="14.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.UcControl" Width="1.5" PointX="7.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.User" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.Video" Width="1.5" PointX="9.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.VideoType" Width="1.5" PointX="14.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.vMenu_Article" Width="1.5" PointX="16.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebDBModel.vXemBL" Width="1.5" PointX="16.75" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="WebDBModel.FK_Advertise_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="WebDBModel.FK_Article_Pages" ManuallyRouted="false" />
+        <AssociationConnector Association="WebDBModel.FK_Article_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="WebDBModel.FK_Comment_Article" ManuallyRouted="false" />
+        <AssociationConnector Association="WebDBModel.FK_RepComment_Comment" ManuallyRouted="false" />
+        <AssociationConnector Association="WebDBModel.FK_RepLienHe_LienHe" ManuallyRouted="false" />
+        <AssociationConnector Association="WebDBModel.FK_Pages_Menu" ManuallyRouted="false" />
+        <AssociationConnector Association="WebDBModel.FK_SettingsUser_Users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

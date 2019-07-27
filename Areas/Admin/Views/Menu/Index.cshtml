@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MVC.Models.sp_Sel_Article_Result>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <!-- /.box -->
+
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Data Table With Full Features</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example1" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>CreateDate</th>
+                            <th>FullName</th>
+                            <th>test</th>
+                            <th>CSS grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>
+                                   @item.Title
+                                </td>
+                                <td>@item.CreateDate</td>
+                                <td>@item.FullName</td>
+                                <td>@(item.ListArticleId == "0"? "Có" : "Không có")</td>
+                                <td>X</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                   
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+    <!-- /.col -->
+</div>

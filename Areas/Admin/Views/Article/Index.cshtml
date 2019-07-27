@@ -1,0 +1,112 @@
+﻿@*@model IEnumerable<MVC.Models.sp_Sel_Article_Result>*@
+@model PagedList.IPagedList<MVC.Models.sp_Search_FullText_Article_Title_Result>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section Header{
+    Quản lý bài viết
+    }
+<div class="row">
+    <div class="col-xs-12">
+        <!-- /.box -->
+
+        <div class="box">
+            <div class="box-header">
+                @*<h3 class="box-title">Quản lý Bài viết</h3>*@
+                @using (Html.BeginForm("Index", "Article", FormMethod.Get))
+                {
+                <div class="row">
+                    <div class="col-md-5">
+                        <input type="text" value="@ViewBag.SearchString" class="form-control" placeholder="Nhập từ khóa tìm kiếm" name="searchString" />
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-success">Tìm kiếm</button>
+                    </div>
+                    <div class="col-md-5 text-right">
+                        <a class="btn btn-primary" href="/Admin/Article/Create">Thêm mới</a>
+                    </div>
+                </div>
+                }
+                
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example1" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>CreateDate</th>
+                            <th>FullName</th>
+                            <th>Category</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr id="row_@item.Id">
+                                <td>@item.Id</td>
+                                <td>
+                                    @item.Title
+                                </td>
+                                <td>@item.CreateDate</td>
+                                <td>@item.FullName</td>
+                                <td>@item.Category</td>
+                                <td>
+                                    <a href="/Admin/User/Edit/@item.Id">Sửa</a>
+                                    |
+                                    
+                                    @Ajax.ActionLink("Xoá", "Delete", new { @id = item.Id }, new AjaxOptions
+                               {
+
+                                   //Confirm = "Bạn có muốn xoá bản ghi này?",
+                                   OnBegin = "return DelAlert(this)",
+
+                                   // LoadingElementId hiển thị một ảnh loading
+                                   //LoadingElementId = "divLoading",
+
+                                   // Nếu thành công thì xóa dòng theo id, có thể sử dụng OnComplete hoặc OnSuccess
+                                   // OnComplete gọi javascript trước khi page được cập nhật, OnSuccess gọi Javascrip sau khi page được cập nhật
+                                   //OnComplete = "$('#row_" + @item.Id + "').remove()",
+                                   //OnComplete = "RemoveRow("+@item.Id+")",
+
+                                   OnSuccess = "OnSuccess(data,"+@item.Id+")",
+
+                                   //OnComplete = "OnComplete(xhr, status, "+@item.Id+")",
+
+                                   // OnFailire gọi javascript khi có ngoại lệ trong quá trình code mà chưa được bắt lỗi
+                                   OnFailure = "OnFailure",
+                                   
+                                   HttpMethod = "Delete"
+
+                               }, new {@class="delete-alert", @title = "Bạn có chắc chắn muốn xóa không ?", @name = "name_"+item.Id+""})
+
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+    <!-- /.col -->
+</div>
+<script>
+    $(function () {
+            
+            $('#example1').DataTable({
+                'paging': false, // ẩn page
+                'ordering': true,
+                'searching': false,
+                'info': true
+            })
+        })
+</script>
